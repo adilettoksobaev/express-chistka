@@ -1,0 +1,255 @@
+@import "vars";
+
+/*==========  Desktop First  ==========*/
+
+// ≥1200px
+@media only screen and (max-width: 1200px) {
+}
+
+// ≥992px
+@media only screen and (max-width: 992px) {
+}
+
+// ≥768px
+@media only screen and (max-width: 768px) {
+  .work {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+  .mobile-header {
+    display: block;
+    padding: 16px;
+    .logo {
+      width: 86px;
+      height: 64px;
+      background-size: contain;
+    }
+  }
+  .menu-logo {
+    display: none;
+  }
+  .btn_mnu {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    cursor: pointer;
+    position: fixed;
+    right: 15px;
+    top: 26px;
+    margin: auto;
+    transition: all 0.5s ease;
+    z-index: 999;
+    &.active {
+      .btn_row {
+        background-color: $text;
+        &:first-child {
+          transform: rotate(-135deg);
+          top: 6px;
+        }
+        &:last-child {
+          -webkit-transform: rotate(-225deg);
+          -ms-transform: rotate(-225deg);
+          -o-transform: rotate(-225deg);
+          transform: rotate(-225deg);
+          top: -10px;
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+      }
+    }
+  }
+  .btn_row {
+    height: 2px;
+    width: 100%;
+    margin: 3px 0;
+    background-color: #fff;
+    position: relative;
+    transition: all 0.5s;
+  }
+  .header {
+    z-index: 99;
+    &.active {
+      .btn_row {
+        background-color: #000;
+      }
+    }
+  }
+  .menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    max-width: 335px;
+    width: 100%;
+    background-color: #ffffff;
+    transition: all 0.5s ease;
+    height: 100%;
+    padding: 16px;
+    z-index: 99;
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: start;
+    &__item {
+      margin-bottom: 16px;
+    }
+    &__link,
+    &__link-price {
+      color: $text;
+    }
+    &.open {
+      right: 0;
+    }
+  }
+  .menu__bg {
+    transition: all 0.5s ease;
+    z-index: 9;
+    &.open {
+      position: fixed;
+      background: #33333373;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
+  .work::after {
+    display: none;
+  }
+}
+
+// ≥576px
+@media only screen and (max-width: 576px) {
+  .main-section {
+    max-width: 100%;
+    background-attachment: inherit;
+    min-height: 100vh;
+    background-position: top center;
+    background-image: url("../img/bg-mobile.jpg");
+  }
+  .order__girl {
+    max-width: 100%;
+  }
+  .order__logo {
+    max-width: 86px;
+  }
+  .order-courier {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  .title,
+  .main-content__title {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  .service {
+    margin-bottom: 30px;
+  }
+  .app-section {
+    padding-top: 40px;
+  }
+  footer {
+    min-height: 150px;
+    img {
+      max-width: 86px;
+    }
+  }
+  .price {
+    &__content {
+      padding: 16px;
+      padding-right: 0;
+    }
+    .table-row {
+      width: 100%;
+      overflow-x: scroll;
+      padding-right: 16px;
+    }
+    table {
+      width: 100%;
+    }
+  }
+  .app__item {
+    width: 100%;
+  }
+  .app-carousel img {
+    max-width: 100%;
+  }
+  .price__title {
+    font-size: 16px;
+    margin-top: 0;
+  }
+  .price table th,
+  .price table td {
+    font-size: 14px;
+  }
+  .best-section {
+    padding-top: 60px;
+    padding-bottom: 0;
+    .title {
+      font-size: 30px;
+    }
+  }
+  .price__logo {
+    max-width: 100px;
+    margin-bottom: 16px;
+  }
+  .before-after-carousel {
+    .slick-next {
+      right: -15px;
+      margin-top: -3px;
+    }
+    .slick-prev {
+      left: -35px;
+    }
+  }
+  .beforeAndAfter {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+  .main-content {
+    padding-left: 16px;
+    padding-right: 16px;
+    &__title {
+      margin-bottom: 16px;
+    }
+    strong {
+      font-size: 18px;
+    }
+  }
+  .questions {
+    margin-top: 40px;
+  }
+  .desctop {
+    display: none;
+  }
+  .order-courier {
+    &.mobile {
+      margin-bottom: 0;
+    }
+  }
+  .mobile {
+    display: block;
+  }
+}
+
+/*==========  Mobile First  ==========*/
+
+// ≤576px
+@include media-breakpoint-up(sm) {
+}
+
+// ≤768px
+@include media-breakpoint-up(md) {
+}
+
+// ≤992px
+@include media-breakpoint-up(lg) {
+}
+
+// ≤1200px
+@include media-breakpoint-up(xl) {
+}

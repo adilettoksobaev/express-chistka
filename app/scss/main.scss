@@ -198,6 +198,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin: auto;
   position: absolute;
   left: 0;
@@ -213,7 +214,7 @@ section {
     margin-bottom: 148px;
   }
   strong {
-    font-size: 22px;
+    font-size: 28px;
   }
 }
 .best-section {
@@ -436,9 +437,13 @@ section {
     display: flex;
     align-items: flex-start;
     margin-bottom: 20px;
+    position: relative;
+    &.group {
+      padding-left: 58px;
+    }
   }
   &__icon {
-    margin-right: 15px;
+    margin-right: 5px;
     fill: #212121;
   }
   &__text {
@@ -459,6 +464,11 @@ section {
     &:hover {
       text-decoration: none;
     }
+  }
+  .icon-group {
+    position: absolute;
+    left: 0;
+    bottom: 0;
   }
 }
 .footer {
@@ -662,6 +672,10 @@ section {
   font-size: 22px;
   li {
     margin-bottom: 10px;
+    list-style: none;
+    color: #f2c94c;
+    font-size: 24px;
+    font-weight: 700;
   }
 }
 .discount-text {
@@ -678,9 +692,9 @@ section {
 }
 
 .discount-promocode {
-  background: #000000;
+  background: $accent;
   border-radius: 10px;
-  color: #f2c94c;
+  color: #fff;
   min-height: 60px;
   padding: 10px 16px;
   box-sizing: border-box;
@@ -751,15 +765,52 @@ section {
 
 .service-block {
   padding: 32px 24px 24px;
-  background: #3e7eff;
+  background: #fff;
   border-radius: 16px;
   width: 100%;
   max-width: 500px;
+  color: $text;
+  #courier-phone,
+  #courier-phone2 {
+    position: relative;
+    margin-bottom: 0;
+    padding-right: 110px;
+  }
+  &__select-group {
+    display: flex;
+    justify-content: space-between;
+    .ts-wrapper {
+      width: 49%;
+    }
+  }
+  &__group {
+    position: relative;
+    margin-bottom: 16px;
+  }
+  &__row {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 5px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    label {
+      display: flex;
+      margin-left: 6px;
+    }
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    margin: 0 6px;
+  }
   &__title {
     font-size: 18px;
     font-weight: 700;
     text-align: left;
     margin-bottom: 16px;
+    color: $text;
   }
   &__input,
   &__select,
@@ -782,5 +833,91 @@ section {
       font-size: 16px;
     }
   }
+  .ts-control {
+    line-height: 44px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    padding: 0 16px;
+    width: 100%;
+    margin-bottom: 16px;
+    border: 1px solid #e5e5ea;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    min-height: 44px;
+    text-align: left;
+    .item {
+      font-size: 16px;
+    }
+    input {
+      &::placeholder {
+        font-size: 16px;
+      }
+    }
+  }
+  .ts-dropdown {
+    border-radius: 6px;
+    overflow: hidden;
+    .option {
+      text-align: left;
+      padding: 16px;
+      line-height: 44px;
+      font-size: 16px;
+      box-sizing: border-box;
+      :hover,
+      .active {
+        background-color: #f3f5f6;
+        opacity: 1;
+      }
+    }
+  }
+  .ts-wrapper {
+    input[type="select-one"] {
+      display: none !important;
+    }
+  }
+  .btn {
+    max-width: 100%;
+    width: 100%;
+    border: none;
+    background-color: $accent;
+    color: #ffffff;
+    &:hover {
+      background-color: #0082ab;
+    }
+  }
 }
+
+.whatsapp {
+  position: fixed;
+  left: 12px;
+  bottom: 16px;
+  width: 50px;
+  height: 50px;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 12px -3px rgb(0 0 0 / 75%);
+  -webkit-box-shadow: 0px 0px 12px -3px rgb(0 0 0 / 75%);
+  -moz-box-shadow: 0px 0px 12px -3px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  z-index: 999;
+  text-decoration: none;
+}
+
+.questions-section {
+  .order-service {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .service-block {
+    margin-top: 50px;
+    box-shadow: 20px 5px 20px rgb(0 0 0 / 8%);
+  }
+}
+
 @import "media"; // Always at the end

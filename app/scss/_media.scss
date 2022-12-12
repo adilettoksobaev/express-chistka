@@ -131,6 +131,9 @@
     background-position: top center;
     background-image: url("../img/bg-mobile.jpg");
   }
+  .order {
+    margin-top: 30px;
+  }
   .order__girl {
     max-width: 100%;
   }
@@ -143,7 +146,7 @@
   }
   .title,
   .main-content__title {
-    font-size: 30px;
+    font-size: 34px;
     margin-bottom: 30px;
   }
   .service {
@@ -217,7 +220,7 @@
       margin-bottom: 16px;
     }
     strong {
-      font-size: 18px;
+      font-size: 22px;
     }
   }
   .questions {
@@ -229,10 +232,57 @@
   .order-courier {
     &.mobile {
       margin-bottom: 0;
+      display: none;
     }
   }
   .mobile {
     display: block;
+  }
+  .service-block {
+    padding: 32px 24px 24px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 500px;
+    &__title {
+      font-size: 18px;
+      font-weight: 700;
+      text-align: left;
+      margin-bottom: 16px;
+    }
+    &__input,
+    &__select,
+    &__textarea {
+      line-height: 44px;
+      border-radius: 6px;
+      box-sizing: border-box;
+      padding: 0 16px;
+      width: 100%;
+      margin-bottom: 16px;
+      border: 1px solid #e5e5ea;
+      transition: all 0.3s ease;
+      background-color: #fff;
+      min-height: 44px;
+      &:focus {
+        border: 1px solid $accent;
+        outline: none !important;
+      }
+      &::placeholder {
+        font-size: 16px;
+      }
+    }
+    &__input {
+      margin-bottom: 0;
+    }
+    .ts-control {
+      .item {
+        font-size: 14px;
+      }
+    }
+    .ts-dropdown {
+      .option {
+        font-size: 14px;
+      }
+    }
   }
 }
 

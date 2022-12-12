@@ -35,6 +35,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js" integrity="sha512-42PE0rd+wZ2hNXftlM78BSehIGzezNeQuzihiBCvUEB3CVxHvsShF86wBWwQORNxNINlBPuq7rG4WWhNiTVHFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/locale/ru.min.js" integrity="sha512-j5j9djiluSFyBwFHffI4b5CcyyyX02BSVBadb3ee8489Pl7Mj8uhsdbKNjeMDqaSx93iHty+rMchTZ0/3wVSBA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
   </head>
 
   <body>
@@ -60,7 +62,7 @@
             <a href="#how-it-works" class="menu__link">Как это работает</a>
           </li>
           <li class="menu__item">
-            <a href="#questions" class="menu__link">Вопросы</a>
+            <a href="#questions" class="menu__link">Доставка и оплата</a>
           </li>
           <li class="menu__item menu-logo">
             <a href="#main" class="logo"></a>
@@ -73,7 +75,7 @@
           </li>
           <div class="menu__item">
             <a href="tel:8 (906) 037-00-11" class="menu__link phone">
-              8 (906) 037-00-11
+              8 (495) 798-69-69
             </a>
           </в>
         </ul>
@@ -84,19 +86,39 @@
         <p class="main-content__desc wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.7s">
           <strong>Химчистка и реставрация обуви и сумок</strong>
         </p>
-        <a href="#order-courier" data-fancybox="courier" class="btn wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.9s">
+        <!-- <a href="#order-courier" data-fancybox="courier" class="btn wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.9s">
           <img src="./img/icon.svg" alt="" />
           Заказать курьера
-        </a>
+        </a> -->
 
 
         <div class="service-block">
-          <div class="service-block__title">Когда забрать вещи?</div>
+          <div class="service-block__title">Когда забрать  обувь?</div>
           <form class="service-block__form">
-            <select name="date" id="date" class="courier__select" aria-placeholder="Дата">
-              <option value="">Выберите дату</option>
-            </select>
-            <input type="text" name="phone" id="phone" class="service-block__input" placeholder="Ваш номер телефона" required>
+            <div class="service-block__select-group">
+              <select name="courier-date" id="courier-date" placeholder="Выберите дату" autocomplete="off" required>
+              </select>
+              <select name="courier-time" id="courier-time" placeholder="Выберите время" autocomplete="off" required>
+                <option value="10:00 - 14:00">10:00 - 14:00</option>
+                <option value="12:00 - 16:00">12:00 - 16:00</option>
+                <option value="16:00 - 20:00">16:00 - 20:00</option>
+                <option value="18:00 - 22:00">18:00 - 22:00</option>
+              </select>
+            </div>
+            <div class="service-block__group">
+              <input type="text" name="courier-phone" id="courier-phone" class="service-block__input" placeholder="Ваш номер телефона" required>
+              <div class="service-block__row">
+                <div class="service-block__item">
+                  <input id="whatsapp" class="radio-custom" name="social" type="radio" checked value="whatsapp">
+                  <label for="whatsapp" class="radio-custom-label"><img src="./img/wp.svg" alt="whatsapp"></label>
+                </div>
+                <div class="service-block__item">
+                  <input id="telegram" class="radio-custom" name="social" type="radio" value="telegram">
+                  <label for="telegram" class="radio-custom-label"><img src="./img/telegram.svg" alt="telegram"></label>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn" onclick="sendMailCourier()">Вызвать курьера</button>
           </form>
         </div>
 
@@ -373,22 +395,54 @@
           </div>
         </div>
         <div class="row justify-content-between">
-          <div class="col-lg-6">
+          <div class="col-sm-12 col-lg-6 order-last order-lg-1">
             <div class="order">
               <div class="order__row">
                 <img src="./img/question.png" alt="" class="order__girl" />
                 <img src="./img/logo-question.svg" alt="" class="order__logo" />
               </div>
             </div>
-            <div class="order-courier desctop">
+            <!-- <div class="order-courier desctop">
               <div class="order-courier__title">Заказать курьера</div>
-              <a href="#order-courier" data-fancybox="courier1" class="btn">
+              <a href="https://wa.me/+7 (495) 941-84-83" target="_blank" class="btn">
                 <img src="./img/wp-white.svg" alt="" />
                 Заказать</a
               >
+            </div> -->
+
+            <div class="order-service">
+              <div class="service-block">
+                <div class="service-block__title">Когда забрать  обувь?</div>
+                <form class="service-block__form">
+                  <div class="service-block__select-group">
+                    <select name="courier-date2" id="courier-date2" placeholder="Выберите дату" autocomplete="off" required>
+                    </select>
+                    <select name="courier-time2" id="courier-time2" placeholder="Выберите время" autocomplete="off" required>
+                      <option value="10:00 - 14:00">10:00 - 14:00</option>
+                      <option value="12:00 - 16:00">12:00 - 16:00</option>
+                      <option value="16:00 - 20:00">16:00 - 20:00</option>
+                      <option value="18:00 - 22:00">18:00 - 22:00</option>
+                    </select>
+                  </div>
+                  <div class="service-block__group">
+                    <input type="text" name="courier-phone2" id="courier-phone2" class="service-block__input" placeholder="Ваш номер телефона" required>
+                    <div class="service-block__row">
+                      <div class="service-block__item">
+                        <input id="whatsapp2" class="radio-custom" name="social2" type="radio" checked value="whatsapp">
+                        <label for="whatsapp2" class="radio-custom-label"><img src="./img/wp.svg" alt="whatsapp"></label>
+                      </div>
+                      <div class="service-block__item">
+                        <input id="telegram2" class="radio-custom" name="social2" type="radio" value="telegram">
+                        <label for="telegram2" class="radio-custom-label"><img src="./img/telegram.svg" alt="telegram"></label>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" class="btn" onclick="sendMailCourier2()">Вызвать курьера</button>
+                </form>
+              </div>
             </div>
           </div>
-          <div class="col-lg-5">
+          <div class="col-sm-12 col-lg-5 order-first order-lg-2">
             <div class="questions">
               <div class="questions__container">
                 <div class="questions__date">
@@ -448,7 +502,7 @@
             </div>
             <div class="order-courier mobile">
               <div class="order-courier__title">Заказать курьера</div>
-              <a href="#order-courier" data-fancybox="courier2" class="btn">
+              <a href="https://wa.me/+7 (495) 941-84-83" target="_blank" class="btn">
                 <img src="./img/wp-white.svg" alt="" />
                 Заказать</a
               >
@@ -461,6 +515,7 @@
       <div class="map">
         <div class="info">
           <img src="./img/logo-info.svg" class="info__logo" alt="" />
+          <div class="info__text">Приемный пункт</div>
           <div class="info__row">
             <img src="./img/place.svg" class="info__icon" />
             <div class="info__text">
@@ -473,16 +528,19 @@
           </div>
           <a href="mailto:antiquepalace1@gmail.com" class="info__row email">
             <img src="./img/email.svg" class="info__icon" />
-            <div class="info__text">antiquepalace1@gmail.com</div>
+            <div class="info__text">hello@x-chi24.ru</div>
           </a>
-          <div class="info__row">
-            <img src="./img/wp.svg" class="info__icon" />
+          <div class="info__row group">
+            <div class="icon-group">
+              <img src="./img/wp.svg" class="info__icon" />
+              <img src="./img/telegram.svg" class="info__icon" />
+            </div>
             <div>
-              <a href="tel:+7 (495) 941-84-83" class="info__text phone"
-                >+7 (495) 941-84-83</a
+              <a href="tel:+7 (495) 798-69-69" class="info__text phone"
+                >+7 (495) 798-69-69</a
               >
-              <a href="tel:+7 (966) 130-96-48" class="info__text phone"
-                >+7 (966) 130-96-48</a
+              <a href="tel:+7 (903) 798-69-69" class="info__text phone"
+                >+7 (903) 798-69-69</a
               >
             </div>
           </div>
@@ -512,6 +570,11 @@
         <div class="footer-text">Express Чистка 2022</div>
       </div>
     </footer>
+
+    
+    <a href="https://api.whatsapp.com/send?phone=74957986969" target="_blank" class="whatsapp">
+      <img src="./img/whatsapp-30x30.svg" alt="">
+    </a>
 
     <!-- Price list -->
     <div id="price-modal" class="price" style="display:none;">
@@ -586,15 +649,15 @@
             </thead>
             <tbody>
               <tr>
-                  <td>Реставрация маленьких сумок</td>
+                  <td>Реставрация сумок мал</td>
                   <td style="text-align: right; font-weight: 600;">шт.</td>
                   <td style="text-align: right; font-weight: 600;">3500</td>
               </tr>
               <tr>
-                <td>Реставрация больших сумок</td>
+                <td>Реставрация сумок бол</td>
                 <td style="text-align: right; font-weight: 600;">шт.</td>
                 <td style="text-align: right; font-weight: 600;">4500</td>
-            </tr>
+              </tr>
             </tbody>
           </table>
           <div class="price__title">Дополнительные услуги</div>
@@ -603,7 +666,7 @@
               <tr>
                   <td>Глубокое выведение реагента</td>
                   <td style="text-align: right; font-weight: 600;">пара</td>
-                  <td style="text-align: right; font-weight: 600;">1500</td>
+                  <td style="text-align: right; font-weight: 600;">250</td>
               </tr>
               <tr>
                 <td>Реставрация урезов, заливка торцов </td>
@@ -611,14 +674,19 @@
                 <td style="text-align: right; font-weight: 600;">2000</td>
               </tr>
               <tr>
+                <td>Реставрация урезов/заливка торцов на сумках</td>
+                <td style="text-align: right; font-weight: 600;">10см</td>
+                <td style="text-align: right; font-weight: 600;">300</td>
+              </tr>
+              <tr>
                 <td>Замена шнурков </td>
                 <td style="text-align: right; font-weight: 600;">пара</td>
-                <td style="text-align: right; font-weight: 600;">500</td>
+                <td style="text-align: right; font-weight: 600;">300</td>
               </tr>
               <tr>
                 <td>Дезинфекция, удаление запаха </td>
                 <td style="text-align: right; font-weight: 600;">шт.</td>
-                <td style="text-align: right; font-weight: 600;">500</td>
+                <td style="text-align: right; font-weight: 600;">250</td>
               </tr>
               <tr>
                 <td>Водоотталкивающая пропитка </td>
@@ -643,32 +711,32 @@
               <tr>
                 <td>Растяжка обуви</td>
                 <td style="text-align: right; font-weight: 600;">пара</td>
-                <td style="text-align: right; font-weight: 600;">1000</td>
+                <td style="text-align: right; font-weight: 600;">700</td>
               </tr>
               <tr>
                 <td>Подклейка/прошив</td>
                 <td style="text-align: right; font-weight: 600;">шт.</td>
-                <td style="text-align: right; font-weight: 600;">от 500</td>
+                <td style="text-align: right; font-weight: 600;">от 100</td>
               </tr>
               <tr>
                 <td>Заплатка внутренняя </td>
                 <td style="text-align: right; font-weight: 600;">шт.</td>
-                <td style="text-align: right; font-weight: 600;">от 1000</td>
+                <td style="text-align: right; font-weight: 600;">от 500</td>
               </tr>
               <tr>
                 <td>Замена молнии  </td>
                 <td style="text-align: right; font-weight: 600;">шт.</td>
-                <td style="text-align: right; font-weight: 600;">от 1500</td>
+                <td style="text-align: right; font-weight: 600;">от 500</td>
               </tr>
               <tr>
                 <td>Замена мягкого  задника </td>
                 <td style="text-align: right; font-weight: 600;">пара</td>
-                <td style="text-align: right; font-weight: 600;">3000</td>
+                <td style="text-align: right; font-weight: 600;">2000</td>
               </tr>
               <tr>
                 <td>Изготовление стелек  </td>
                 <td style="text-align: right; font-weight: 600;">пара</td>
-                <td style="text-align: right; font-weight: 600;">1000</td>
+                <td style="text-align: right; font-weight: 600;">500</td>
               </tr>
             </tbody>
           </table>
@@ -681,12 +749,11 @@
 
     <!-- Start discount -->
       <div style="display: none;" id="discount">
-        <div class="discount-title">Получи скидку на</div>
+        <div class="discount-title">Получи подарок до <br /> нового года</div>
         <ol class="discount-list">
-          <li>Бесплатную доставку</li>
-          <li>Акция до 31 сентября</li>
+          <li>Бесплатная доставка</li>
         </ol>
-        <div class="discount-label">по промокоду:</div>
+        <div class="discount-label">на первый заказ <br /> по промокоду:</div>
         <div class="discount-promocode">new</div>
     </div>
     <!-- End discount -->

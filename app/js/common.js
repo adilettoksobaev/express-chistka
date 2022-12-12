@@ -1,4 +1,80 @@
 $(document).ready(function () {
+  new TomSelect("#courier-date", {
+    create: true,
+    sortField: {
+      field: "text",
+      direction: "asc",
+    },
+    options: getTomorrow(),
+    items: selectedItmes(),
+  });
+
+  new TomSelect("#courier-time", {
+    create: true,
+    sortField: {
+      field: "text",
+      direction: "asc",
+    },
+    items: ["10:00 - 14:00"],
+  });
+
+  new TomSelect("#courier-date2", {
+    create: true,
+    sortField: {
+      field: "text",
+      direction: "asc",
+    },
+    options: getTomorrow(),
+    items: selectedItmes(),
+  });
+
+  new TomSelect("#courier-time2", {
+    create: true,
+    sortField: {
+      field: "text",
+      direction: "asc",
+    },
+    items: ["10:00 - 14:00"],
+  });
+
+  function selectedItmes() {
+    let tomorrow = moment().add(1, "days").format("DD MMMM");
+    return [tomorrow];
+  }
+
+  function getTomorrow() {
+    return [
+      {
+        value: moment().add(1, "days").format("DD MMMM"),
+        text: moment().add(1, "days").format("DD MMMM"),
+      },
+      {
+        value: moment().add(2, "days").format("DD MMMM"),
+        text: moment().add(2, "days").format("DD MMMM"),
+      },
+      {
+        value: moment().add(3, "days").format("DD MMMM"),
+        text: moment().add(3, "days").format("DD MMMM"),
+      },
+      {
+        value: moment().add(4, "days").format("DD MMMM"),
+        text: moment().add(4, "days").format("DD MMMM"),
+      },
+      {
+        value: moment().add(5, "days").format("DD MMMM"),
+        text: moment().add(5, "days").format("DD MMMM"),
+      },
+      {
+        value: moment().add(6, "days").format("DD MMMM"),
+        text: moment().add(6, "days").format("DD MMMM"),
+      },
+      {
+        value: moment().add(7, "days").format("DD MMMM"),
+        text: moment().add(7, "days").format("DD MMMM"),
+      },
+    ];
+  }
+
   const enumerateDaysBetweenDates = function (startDate, endDate) {
     const now = startDate,
       dates = [];
@@ -126,5 +202,53 @@ function sendMail() {
       document.getElementById("date").value = "";
       document.getElementById("time").value = "";
       document.getElementById("message").value = null;
+    });
+}
+
+function sendMailCourier(event) {
+  const date = document.getElementById("courier-date").value;
+  const time = document.getElementById("courier-time").value;
+  let phone = document.getElementById("courier-phone").value;
+  const social = document.querySelector('input[name="social"]:checked').value;
+
+  if (date.length == 0 || time.length == 0 || phone.length == 0) {
+    return alert("Введите номер телефона");
+  }
+
+  const params = {
+    date: date,
+    time: time,
+    phone: phone,
+    social: social,
+  };
+  emailjs
+    .send("service_gk0a39c", "template_v3u5ybd", params)
+    .then(function (res) {
+      Fancybox.show([{ src: "#success", type: "inline" }]);
+      document.getElementById("courier-phone").value = null;
+    });
+}
+
+function sendMailCourier2(event) {
+  const date = document.getElementById("courier-date2").value;
+  const time = document.getElementById("courier-time2").value;
+  let phone = document.getElementById("courier-phone2").value;
+  const social = document.querySelector('input[name="social2"]:checked').value;
+
+  if (date.length == 0 || time.length == 0 || phone.length == 0) {
+    return alert("Введите номер телефона");
+  }
+
+  const params = {
+    date: date,
+    time: time,
+    phone: phone,
+    social: social,
+  };
+  emailjs
+    .send("service_gk0a39c", "template_v3u5ybd", params)
+    .then(function (res) {
+      Fancybox.show([{ src: "#success", type: "inline" }]);
+      document.getElementById("courier-phone").value = null;
     });
 }
